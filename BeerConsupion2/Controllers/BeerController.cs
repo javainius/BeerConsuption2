@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -76,12 +76,12 @@ namespace BeerConsupion2.Controllers
 
         // POST: Beer/Edit/5
         [HttpPost]
-        public async Task<ActionResult> Edit(int id, FormCollection collection)
+        public async Task<ActionResult> Edit(string id, BeerCreate editBeer)
         {
             try
             {
                 // TODO: Add update logic here
-
+                await ApiClient.PutObjectAsync<BeerCreate>(editBeer, "Beers/" + id);
                 return RedirectToAction("Index");
             }
             catch
@@ -102,54 +102,4 @@ namespace BeerConsupion2.Controllers
         
     }
 }
-/*
- * public class BeerController : Controller
-    {
 
-        // GET: Beer
-        public async Task<ActionResult> Index()
-        {
-            List<Beer> beers = await ApiClient.GetAllAsync<Beer>("Beers/");
-            List<BeerType> beerTypes = await ApiClient.GetAllAsync<BeerType>("BeerTypes/");
-
-            for(int i = 0; i < beers.Count; i++)
-            {
-                for(int j = 0; j < beerTypes.Count; j++)
-                {
-                    if(beers[i].TypeId == beerTypes[j].Id)
-                    {
-                        beers[i].TypeId = beerTypes[j].Name;
-                    }
-                }
-            }
-            return View(beers);
-        }
-      
-        // GET: Beer/Create
-*/
-
-
-
-/*
-  public async Task<ActionResult> Create()
-       {
-           var beerTypes = await ApiClient.GetAllAsync<BeerType>("BeerTypes/");
-           BeerCreateView newBeer = new BeerCreateView(beerTypes);
-           return View(newBeer);
-       }
-
-       // POST: Beer/Create
-       [HttpPost]
-       public async Task<ActionResult> Create(BeerCreate newBeer)
-       {
-           try
-           {
-               await ApiClient.PostObjectAsync(newBeer, "Beers/");
-               return RedirectToAction("Index");
-           }
-           catch
-           {
-               return RedirectToAction("Create");
-           }
-       }
-       */
