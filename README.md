@@ -1,6 +1,9 @@
 # BeerConsuption2
 
-My first encounter and first steps in C# and .NET, which were made on first week in Sitecore academy
+It was my first time, when I saw C# and .NET code. 
 
-# Macaw challange. Sitecore academy. MVC.NET C# project
+We were using local API to get, post, delete and update the data
+
+some comments were left as memorial of how unconfident, scared and confused I was back then :D 
+# Macaw challange. Sitecore academy 2019 October 21 - 31. MVC.NET C# project
 
